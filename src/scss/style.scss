@@ -1,1 +1,31 @@
 // Main Sass File
+
+.navbar{
+    background-color: #042157;
+    color: #ffffff;
+}
+
+.navbar-text, .navbar-text:hover{
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#sign-up-button{
+    background-color: #0398D0;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100px;
+}
+
+.dropdown-menu > a:hover{    
+    background-color: #042157;
+    color: #ffffff;
+}
+
+#current-question-container{
+    background-color: #FAFAFA;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#search-prepend{
+    background-color: #ffffff;
+}
