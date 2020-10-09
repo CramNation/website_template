@@ -5,12 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <script src="https://apis.google.com/js/api:client.js"></script>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/reveal.js"></script>
     <script src="js/login_modal.js"></script>
+    <script src="js/google_sign_in.js"></script>
     <title>Cram Nation</title>
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
 </head>
@@ -39,53 +41,78 @@
         </ul>
 
         <div class="ml-auto mr-5">
-            <a class="nav-link ml-auto navbar-text mr-3" id="myBtn" href="#">Login</a>
-
-           
-            
+            <a class="nav-link ml-auto navbar-text mr-3" data-toggle="modal" data-target="#exampleModal" id="myBtn" href="#">Login</a>
 
             <button class="btn" id="sign-up-button">Sign up</button>
         </div>
 
     </nav>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div id="sign-up-header" class="row">
+                
+                    <h4 class="ml-3 mt-1 mr-auto">Login</h4>
+                
+                    <div class="row mr-5">
+                        <button type="button" class="x close" data-dismiss="modal" aria-label="Close">
+                            <!-- <span class="x close ml-auto"></span> -->
+                        </button>
 
-    <div id="myModal" class="modal">
+                    </div>
+                </div>
+
+                <div class="row sign-up-body">
+                
+                    <!-- In the callback, you would hide the gSignInWrapper element on a
+                                  successful sign in -->
+                
+                    <div class="ml-3 mr-3" id="gSignInWrapper">
+                        <div id="customBtn" class="customGPlusSignIn">
+                            <span class="icon"></span>
+                            <span class="buttonText">Login with Google</span>
+                        </div>
+                
+                    </div>
+                
+                    <script>startApp();</script>
+                
+                    <form class="w-100 ml-3 mr-3">
+                        <div class="form-group">
+                            <input type="email" class="form-control style-form p-0" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                placeholder="Email">
+                            <label class="label-style pb-1">Email</label>
+                
+                            <input type="password" class="form-control style-form p-0" id="exampleInputPassword1"
+                                placeholder="Password">
+                
+                            <div class="row m-0">
+                                <label class="label-style p-0">Password</label>
+                                <a class="ml-auto" href="">
+                                    <p id="forgot-password" class="label-style">Forgot password?</p>
+                                </a>
+                            </div>
+                
+                            <button class="btn mt-3 w-100" id="login-button-big">Login</button>
+                        </div>
+                
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+   
+    <div id="myModal" class="modal fade">
     
         <!-- Modal content -->
         <div class="modal-content">
-            <div id="sign-up-header" class="row">
-                
-                <h4 class="ml-3 mt-1 mr-auto">Login</h4>
-               
-                
-                <div class="row mr-5">
-                <span class="x close ml-auto"></span>
-                </div>
-            </div>
+            
 
-            <div class="row sign-up-body">
-               
-                    <style type="text/css">
-                        
-                    </style>
-                </head>
-                
-                <body>
-                    <!-- In the callback, you would hide the gSignInWrapper element on a
-                  successful sign in -->
-                    <div id="gSignInWrapper">
-                        <span class="label">Sign in with:</span>
-                        <div id="customBtn" class="customGPlusSignIn">
-                            <span class="icon"></span>
-                            <span class="buttonText">Google</span>
-                        </div>
-                    </div>
-                    <div id="name"></div>
-                    <script>startApp();</script>
-                </body>
-                
-               
-            </div>
             
         </div>
     

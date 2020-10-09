@@ -1,5 +1,3 @@
-$(document).ready(function () {
-
     var googleUser = {};
     var startApp = function () {
         gapi.load('auth2', function () {
@@ -24,5 +22,3 @@ $(document).ready(function () {
                 alert(JSON.stringify(error, undefined, 2));
             });
     }
-
-});
