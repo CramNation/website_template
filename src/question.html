@@ -18,6 +18,32 @@
 </head>
 
 <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=3848032151890819&autoLogAppEvents=1"
+        nonce="saILoyFS"></script>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '{your-app-id}',
+                cookie: true,
+                xfbml: true,
+                version: '{api-version}'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <nav class="navbar navbar-expand">
         <a class="navbar-brand ml-5" href="question.html">
             <img src="img/cram_nation_white.png" alt="Logo" height=40px>
@@ -70,16 +96,28 @@
                     <!-- In the callback, you would hide the gSignInWrapper element on a
                                   successful sign in -->
                 
-                    <div class="ml-3 mr-3" id="gSignInWrapper">
-                        <div id="customBtn" class="customGPlusSignIn">
+                    <div class="ml-3 mr-3 mb-3 w-100" id="gSignInWrapper">
+                        <div id="customBtn" class="customGPlusSignIn w-100">
                             <span class="icon"></span>
                             <span class="buttonText">Login with Google</span>
                         </div>
-                
+                    </div>
+
+                    <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default"
+                        data-auto-logout-link="false" data-use-continue-as="false" data-width="">
                     </div>
                 
                     <script>startApp();</script>
-                
+
+                    <script>
+                        FB.getLoginStatus(function (response) {
+                            statusChangeCallback(response);
+                        });</script>
+                <div class="w-100 ml-3 mr-3 or-container">
+                    <div class="line-separator"></div>
+                    <div class="or-label">or</div>
+                    <div class="line-separator"></div>
+                </div>
                     <form class="w-100 ml-3 mr-3">
                         <div class="form-group">
                             <input type="email" class="form-control style-form p-0" id="exampleInputEmail1" aria-describedby="emailHelp"
