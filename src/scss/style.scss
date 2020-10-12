@@ -137,13 +137,13 @@ p{
 }
 .page-footer{
   background-color: #042157;
+  color: #ffffff;
+  font-size: 14px;
 }
 #footer-logo{
   padding-left: 16%;
 }
-.footer-text{
-  color: #ffffff;
-}
+
 #footer-line-break{
   background-color: #ffffff;
 }
@@ -378,8 +378,30 @@ box-shadow: none;
     -webkit-opacity: 0;
   }
 }
-
 .slideIn {
   -webkit-animation-name: slideIn;
   animation-name: slideIn;
+}
+#subject-container{
+  padding-top: 3%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FAFAFA;
+}
+.num-cram-sets{
+  font-size: 16px;
+  opacity: .5;
+}
+#subject-text{
+  font-weight: 700;
+}
+.cram-set{
+  background-color: #ffffff;
+  height: 120px;
+  padding-top: 32px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px #CBCBCB;
+}
+.cram-set-header{
+  color: #042157;
+
 }
