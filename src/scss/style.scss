@@ -449,7 +449,25 @@ box-shadow: none;
 .white-table{
   background-color: #FFFFFF;
   border-radius: 5px;
+  box-shadow: 0px 3px 6px #CBCBCB;
 }
-.table > tbody > tr:first-child > td {
-    border: none;
+.table-header{
+  background-color: #042157;
+  color: #ffffff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+}
+
+.edit-text{
+  color: #0398D0;
+  opacity: 1;
+  font-size: 13px;
+}
+.delete-text{
+  color: #DE0909;
+  opacity: 1;
+  font-size: 13px;
 }
