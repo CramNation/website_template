@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/login_modal.js"></script>
+    <script src="js/google_sign_in.js"></script>
+    <script src="js/facebook_log_in.js"></script>
+    <title>Cram Nation</title>
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=3848032151890819&autoLogAppEvents=1"
+        nonce="saILoyFS"></script>
+
+    <nav class="navbar navbar-expand">
+        <a class="navbar-brand ml-5" href="question.html">
+            <img src="img/cram_nation_white.png" alt="Logo" height=40px>
+        </a>
+
+        <ul class="navbar-nav">
+
+            <li class="nav-item dropdown mt-1">
+                <a class="nav-link navbar-text ml-4" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img class="mr-1 mb-1" src="img/hamburger-icon.png" alt="hamburger icon" height=20px>
+                    Subject
+
+                </a>
+                <div class="dropdown-menu animate slideIn" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Art</a>
+                    <a class="dropdown-item" href="#">Humanities</a>
+                    <a class="dropdown-item" href="#">Business</a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="ml-auto mr-5">
+            <a class="nav-link ml-auto navbar-text mr-3" data-toggle="modal" data-target="#loginModal" id="myBtn"
+                href="#">Login</a>
+
+            <button class="btn" id="sign-up-button" data-toggle="modal" data-target="#signUpModal" id="myBtn">Sign
+                up</button>
+        </div>
+
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div id="sign-up-header" class="row">
+
+                    <h4 class="ml-3 mt-1 mr-auto">Sign Up</h4>
+
+                    <div class="row mr-5">
+                        <button type="button" class="x close" data-dismiss="modal" aria-label="Close">
+
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="row sign-up-body d-flex justify-content-center">
+
+
+                    <!-- In the callback, you would hide the gSignInWrapper element on a
+                                          successful sign in -->
+
+                    <div class="mt-3">
+                        <a id="gSignInWrapper" class="btn-google" href="">
+                            <div id="google-button" class="google-content">
+                                <div class="logo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 48 48">
+                                        <defs>
+                                            <path id="a"
+                                                d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z" />
+                                        </defs>
+                                        <clipPath id="b">
+                                            <use xlink:href="#a" overflow="visible" />
+                                        </clipPath>
+                                        <path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z" />
+                                        <path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z" />
+                                        <path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z" />
+                                        <path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z" />
+                                    </svg>
+                                </div>
+                                <div class="w-100">
+                                    <p>Continue with Google</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- facebook	 -->
+                    <div class="mt-4 mb-2">
+                        <a class="btn-fb" onclick="fb_login();">
+                            <div class="fb-content fb-login-button">
+                                <div class="logo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                        version="1">
+                                        <path fill="#FFFFFF"
+                                            d="M32 30a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h28a2 2 0 0 1 2 2v28z" />
+                                        <path fill="#4267b2"
+                                            d="M22 32V20h4l1-5h-5v-2c0-2 1.002-3 3-3h2V5h-4c-3.675 0-6 2.881-6 7v3h-4v5h4v12h5z" />
+                                    </svg>
+                                </div>
+                                <p>Continue with Facebook</p>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <script>startApp();</script>
+
+                    <script>
+                        FB.getLoginStatus(function (response) {
+                            statusChangeCallback(response);
+                        });
+                    </script>
+
+                    <div class="w-100 ml-3 mr-3 or-container">
+                        <div class="line-separator"></div>
+                        <div class="or-label">or</div>
+                        <div class="line-separator"></div>
+                    </div>
+                    <form class="w-100 ml-3 mr-3">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="name" class="form-control style-form p-0" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" placeholder="First Name">
+                                    <label class="label-style pb-1">First Name</label>
+                                </div>
+                                <div class="col">
+                                    <input type="name" class="form-control style-form p-0" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" placeholder="Last Name">
+                                    <label class="label-style pb-1">Last Name</label>
+                                </div>
+
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="email" class="form-control style-form p-0" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" placeholder="Email">
+                                    <label class="label-style pb-1">Email</label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="password" class="form-control style-form p-0" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" placeholder="Password">
+                                    <label class="label-style pb-1">Password</label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="password" class="form-control style-form p-0" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" placeholder="Confirm Password">
+                                    <div class="row m-0">
+                                        <label class="label-style p-0">Password</label>
+                                        <a class="ml-auto" href="">
+                                            <p id="forgot-password" class="label-style">Forgot password?</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn mt-3 w-100" id="login-button-big">Sign Up</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div id="sign-up-header" class="row">
+
+                    <h4 class="ml-3 mt-1 mr-auto">Login</h4>
+
+                    <div class="row mr-5">
+                        <button type="button" class="x close" data-dismiss="modal" aria-label="Close">
+
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="row sign-up-body d-flex justify-content-center">
+
+                    <div class="mt-3">
+                        <a id="gSignInWrapper" class="btn-google" href="">
+                            <div id="google-button" class="google-content">
+                                <div class="logo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 48 48">
+                                        <defs>
+                                            <path id="c"
+                                                d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z" />
+                                        </defs>
+                                        <clipPath id="d">
+                                            <use xlink:href="#c" overflow="visible" />
+                                        </clipPath>
+                                        <path clip-path="url(#d)" fill="#FBBC05" d="M0 37V11l17 13z" />
+                                        <path clip-path="url(#d)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z" />
+                                        <path clip-path="url(#d)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z" />
+                                        <path clip-path="url(#d)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z" />
+                                    </svg>
+                                </div>
+                                <div class="w-100">
+                                    <p>Login with Google</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <!-- facebook	 -->
+                    <div class="mt-4 mb-2">
+                        <a class="btn-fb" onclick="fb_login();">
+                            <div class="fb-content fb-login-button">
+                                <div class="logo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                        version="1">
+                                        <path fill="#FFFFFF"
+                                            d="M32 30a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h28a2 2 0 0 1 2 2v28z" />
+                                        <path fill="#4267b2"
+                                            d="M22 32V20h4l1-5h-5v-2c0-2 1.002-3 3-3h2V5h-4c-3.675 0-6 2.881-6 7v3h-4v5h4v12h5z" />
+                                    </svg>
+                                </div>
+                                <p>Login with Facebook</p>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <script>startApp();</script>
+
+                    <script>
+                        FB.getLoginStatus(function (response) {
+                            statusChangeCallback(response);
+                        });
+                    </script>
+
+                    <div class="w-100 ml-3 mr-3 or-container">
+                        <div class="line-separator"></div>
+                        <div class="or-label">or</div>
+                        <div class="line-separator"></div>
+                    </div>
+                    <form class="w-100 ml-3 mr-3">
+                        <div class="form-group">
+                            <input type="email" class="form-control style-form p-0" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Email">
+                            <label class="label-style pb-1">Email</label>
+
+                            <input type="password" class="form-control style-form p-0" id="exampleInputPassword1"
+                                placeholder="Password">
+
+                            <div class="row m-0">
+                                <label class="label-style p-0">Password</label>
+                                <a class="ml-auto" href="">
+                                    <p id="forgot-password" class="label-style">Forgot password?</p>
+                                </a>
+                            </div>
+
+                            <button class="btn mt-3 w-100" id="login-button-big">Login</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="pages-container" class="container-fluid">
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-9 col-xl-8">
+            <h3 id="subject-text">DMCA Takedown Request</h3>
+            <p class="reset-subtext pb-2 pl-0">If you believe material on Cram Nation is infringing on your copyright, please fill out the form below and we will promptly
+            address your concern.</p>
+            <h5 class="p-0">Contact Information</h5>
+            <form>
+                <div class="form-row">
+                    <div class="col">
+                        <label class="label-style pb-0 mb-1">Full Name</label>
+                        <input type="name" class="form-control dmca-style pl-2" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        
+                    </div>
+                    <div class="col">
+                        <label class="label-style pb-0 mb-1">Copyright Owner</label>
+                        <input type="name" class="form-control pl-2" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    
+                    </div>
+                    
+                </div>
+                <div class="form-row pt-2">
+                    <div class="col">
+                        <label class="label-style pb-0 mb-1">Email</label>
+                        <input type="name" class="form-control pl-2" id="exampleInputEmail1" aria-describedby="emailHelp">
+                
+                    </div>
+                    <div class="col">
+                        <label class="label-style pb-0 mb-1">Title or Job Position</label>
+                        <input type="name" class="form-control pl-2" id="exampleInputEmail1" aria-describedby="emailHelp">
+                
+                    </div>
+                
+                </div>
+            </form>
+            <h5 class="pl-0 pt-4">Infringing Content</h5>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <label class="label-style pb-0 mb-1">Name of Content</label>
+                            <input type="name" class="form-control pl-2" id="exampleInputEmail1" aria-describedby="emailHelp">
+            
+                        </div>
+                        <div class="col">
+                            <label class="label-style pb-0 mb-1">URL of Content</label>
+                            <input type="name" class="form-control pl-2" id="exampleInputEmail1" aria-describedby="emailHelp">
+            
+                        </div>
+                        
+                    </div>
+                </form>
+            <h5 class="pl-0 pt-4 pb-2">By checking the following boxes, I hereby state and agree that:</h5>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label  class="form-check-label" for="exampleCheck1"><p id="reset-subtext">I have a good faith belief that the use of the material in the manner complained of is not authorized by the copyright
+                owner, its agent, or the law;</p> </label>
+                
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1"><p id="reset-subtext">The above information is accurate;</p> </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1"><p id="reset-subtext">and UNDER PENALTY OF PERJURY, I am the owner, or an agent authorized to act on behalf of the owner, of an exclusive
+                right that is allegedly infringed.</p> </label>
+            </div>
+            <h5 class="pl-0 pt-2">Digitally sign this form by typing your name here:</h5>
+            <form>
+                <div class="form-row">
+                    <div class="col-6">
+                        <input type="name" class="form-control pl-2" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                    </div>
+                </div>
+            </form>
+
+            <button class="btn mt-4" id="sign-up-button">Submit</button>
+        </div>
+        
+    </div>
+
+    <footer class="page-footer pt-5 pb-3">
+        <div class="container-fluid pt-5 pb-5">
+            <div class="row">
+
+                <div class="d-none d-md-block col-lg-6 col-xl-6">
+                    <img id="footer-logo" src="img/cram_nation_white.png" alt="logo" height="80px">
+                </div>
+
+                <div class="row mx-auto pb-3">
+                    <div class="d-block d-md-none">
+                        <img id="footer-logo" src="img/cram_nation_White.png" alt="logo" height="60px" width="354px">
+                    </div>
+                </div>
+
+                <div class="row mx-auto">
+                    <div class="p-3 pl-3 pr-3">
+                        <ul class="footer-text list-unstyled">
+                            <li class="p-2">
+                                DMCA Takedown
+                            </li>
+                            <li class="p-2">
+                                Contact Us
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-3 pl-5 pr-3">
+                        <ul class="footer-text list-unstyled">
+                            <li class="p-2">
+                                Terms of Service
+                            </li>
+                            <li class="p-2">
+                                Privacy Policy
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <!-- Copyright -->
+        <hr id="footer-line-break">
+        <div class="footer-text text-center">© 2020 Cram Nation LLC. All rights reserved.
+        </div>
+
+        <!-- Copyright -->
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
